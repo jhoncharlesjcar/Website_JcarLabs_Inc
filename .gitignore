@@ -1,16 +1,10 @@
 node_modules/
 dist/
 .astro/
-test-results/
-playwright-report/
 .env
 .env.*
 !.env.example
 *.log
-# Reportes de auditoría (no commitear; los genera el CI local)
-migration/reports/
-migration/corporate-reference/
-# Vercel
 .vercel/
 
 # OS & Editors
@@ -22,4 +16,3 @@ Thumbs.db
 *.ntvs*
 *.njsproj
 *.sln
-README\ .md

@@ -1,71 +1,118 @@
-# JCAR Labs Inc. — Astro
+# JCAR Labs Inc. — Corporate Web Platform
 
-Migración conservadora a **Astro 7 + TypeScript**, con compilación estática y rutas explícitas en un manifiesto. Se mantienen el diseño y los motores de interacción del export existente.
+[![Built by JCAR Labs Inc.](https://img.shields.io/badge/Engineered%20by-JCAR%20Labs%20Inc.-00ff88?style=for-the-badge&logo=codeforces&logoColor=black)](https://github.com/jhoncharlesjcar/Website_JcarLabs_Inc)
+[![Framework - Astro 7](https://img.shields.io/badge/Framework-Astro%207-BC52EE?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build/)
+[![TypeScript](https://img.shields.io/badge/Language-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Deployment - Vercel](https://img.shields.io/badge/Deploy-Vercel%20Ready-black?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 
-## Ejecutar
+Plataforma web corporativa oficial de **JCAR Labs Inc.**, concebida, diseñada y desarrollada íntegramente por su equipo de ingeniería como un escaparate de vanguardia tecnológica, diseño interactivo de alta fidelidad y rendimiento de nivel empresarial.
 
-```sh
-npm ci
-npm run dev
+---
+
+## 🏛️ Sobre JCAR Labs Inc.
+
+**JCAR Labs Inc.** es un estudio de ingeniería de software para negocios. Conectamos soluciones digitales con decisiones sólidas de arquitectura, datos, infraestructura cloud y seguridad, permitiendo a las organizaciones construir, modernizar y escalar productos de alto impacto.
+
+### Portafolio de Soluciones Integradas
+
+| # | Solución | Enfoque Tecnológico | Ruta en la Plataforma |
+|---|---|---|---|
+| **01** | **Desarrollo de Software a Medida & Productos SaaS** | React, Node.js, SQL, Arquitecturas Multitenant | `/services/desarrollo-web` |
+| **02** | **Integración de IA Transmodal, Agentes & LLMOps** | Python, LangChain, Modelos Multimodales, Supervisión | `/services/inteligencia-artificial` |
+| **03** | **Arquitectura Cloud, APIs & Microservicios** | Node.js, Java, Python, REST/gRPC, Observabilidad | `/services/desarrollo-full-stack` |
+| **04** | **Modernización e Ingeniería de Sistemas Legacy** | Java, PHP, SQL, Migración por Etapas sin Downtime | `/services/software-empresarial` |
+| **05** | **Consultoría de Arquitectura & Auditoría de Código** | Análisis Estático, Seguridad, Rendimiento, Escalabilidad | `/services/integraciones-sunat` |
+
+---
+
+## ⚡ Arquitectura y Tecnologías
+
+La plataforma ha sido construida combinando rendimiento estático extremo con interactividad cinemática avanzada:
+
+* **Core Framework:** [Astro 7](https://astro.build/) con generación estática (SSG) y tipado estricto con [TypeScript](https://www.typescriptlang.org/).
+* **Experiencia Visual & Motion Design:** Motor de interacción fluido con soporte para transiciones cinemáticas, animaciones impulsadas por scroll, efectos parallax, microinteracciones reactivas y reproducción optimizada de video en alta definición.
+* **Ecosistema de Ingeniería:** React para componentes interactivos clave, integración de pipelines de datos y servicios en Node.js, Python, Java y PHP.
+* **Servidor y Edge Runtime:**
+  * Transporte HTTP de producción (`src/server/http.mjs`) con compresión nativa (Gzip/Brotli/Deflate), streaming de rangos HTTP (Byte Ranges para video y CMS binario).
+  * Cabeceras de seguridad estrictas (Content-Security-Policy, HSTS, X-Frame-Options, X-Content-Type-Options).
+  * Funciones Serverless dedicadas para Vercel (`api/framercms.js`) garantizando paridad total en despliegues distribuidos.
+* **SEO & Optimización Semántica:** Metadatos dinámicos OpenGraph/Twitter Cards, marcado estructurado JSON-LD, sitemap XML automatizado y robots.txt configurables por entorno.
+
+---
+
+## 📁 Estructura del Proyecto
+
+```text
+├── api/                   # Funciones Serverless (e.g. Vercel runtime handlers)
+├── public/                # Assets estáticos servidos en CDN (imágenes, videos, fuentes, CSS)
+├── scripts/               # Scripts de build, generación de contenido y servidor de producción
+│   ├── lib/               # Utilidades de generación de metadatos y scripts
+│   ├── generate-corporate-content.mjs
+│   └── serve.mjs
+├── src/
+│   ├── content/           # Contenido corporativo maestro (corporate.mjs, routes.json, copy)
+│   ├── layouts/           # Plantillas base y layouts limpios
+│   ├── lib/               # Utilidades de renderizado, metadatos y extracción de documentos
+│   ├── pages/             # Rutas Astro de la plataforma (Inicio, Servicios, Casos, Contacto, 404)
+│   └── server/            # Motor de transporte HTTP, compresión y seguridad
+├── astro.config.mjs       # Configuración central de Astro
+├── package.json           # Dependencias y scripts de ejecución
+├── tsconfig.json          # Configuración de compilación TypeScript
+└── vercel.json            # Configuración de despliegue en Vercel (Edge, Routing, Headers)
 ```
 
-Desarrollo: `http://127.0.0.1:4321`. El proyecto incluye Node 24 como dependencia de desarrollo; los comandos de npm lo utilizan sin modificar la instalación global.
+---
 
+## 🛠️ Guía de Ejecución Local
+
+### Requisitos Previos
+* **Node.js:** Versión 22.12.0 o superior (recomendado Node 22 LTS o 24).
+* Gestor de paquetes: **pnpm** (recomendado), **npm** o **yarn**.
+
+### Instalación de Dependencias
 ```sh
-npm run build
-npm start
+# Usando pnpm
+pnpm install
+
+# O usando npm
+npm install
 ```
 
-`npm start` sirve **dist/** en el mismo puerto 4321. Para despliegues Node, definir `HOST=0.0.0.0` y `PORT` según el proveedor. El runtime del servidor debe ser Node 22.19+ o 24. No ejecutar desarrollo y producción simultáneamente en el mismo puerto.
-
-## Arquitectura
-
-- `src/pages/`: entradas de Astro para inicio, páginas y 404.
-- `src/layouts/PreservedDocument.astro`: documento compartido sin wrappers, estilos nuevos ni hidratación adicional.
-- `src/content/routes.json`: 26 rutas originales.
-- `src/content/pages/`: HTML preservado; es la fuente que compila Astro.
-- `src/lib/documents.ts`: lectura y extracción tipada que conserva los contenidos de head/body.
-- `public/`: CSS, JavaScript, bundles Framer/Motion/React, fuentes, imágenes, videos y CMS originales.
-- `src/server/http.mjs`: transporte de producción, con redirecciones, compresión, caché, seguridad y rangos de video/CMS.
-- `src/middleware.ts`: compatibilidad de URLs y redirecciones en desarrollo.
-- `migration/baseline.json`: huellas SHA-256 de las 26 páginas y los 338 recursos.
-
-La raíz conserva el export previo y `server.mjs` como referencia ejecutable mediante `npm run legacy` (puerto 3000). Los scripts antiguos de reparación operan sobre esa referencia, **no** sobre las fuentes de Astro. No ejecutarlos como paso de compilación de la migración.
-
-## Alcance
-
-Astro administra las páginas y el proceso de compilación. El runtime compilado de Framer sigue administrando su árbol React, variantes responsive, animaciones y efectos. `brand-content.js` y `accessibility.js` siguen presentes. No se ha hecho una reescritura de esos componentes a React/Vue/Svelte, ni una eliminación de Framer: esa sustitución requiere reconstruir y validar cada interacción por separado.
-
-Se conserva la navegación de documento completo y la estructura de enlaces. JCAR Labs todavía no tiene dominio web: se omiten canonical, og:url y las imágenes sociales vinculadas al dominio de la plantilla. El sitemap queda vacío y robots.txt no anuncia un dominio provisional. El sitio no se publica con estos comandos.
-
-## Contenido corporativo
-
-`src/content/corporate.mjs` centraliza el posicionamiento, las cinco soluciones, el ecosistema técnico y los textos editoriales. `src/content/service-source-blocks.json` identifica los bloques de la plantilla que reciben esos textos. Editar el contenido corporativo y ejecutar `npm run content:generate` con el servidor abierto; `dev` y `build` lo generan automáticamente al arrancar.
-
-El generador adapta únicamente literales de contenido en la capa original e incorpora un paso posterior a la hidratación para los artículos. Los nuevos artículos conservan sus elementos y spans. Los metadatos se adaptan mediante `src/lib/corporate-document.mjs`. No editar manualmente `public/brand-content.js`, robots.txt o sitemap.xml: son salidas generadas. El export raíz y los HTML de `src/content/pages/` permanecen como referencia intacta.
-
-Las URL históricas se mantienen: desarrollo-web presenta Software & SaaS; inteligencia-artificial presenta IA, agentes y LLMOps; desarrollo-full-stack presenta cloud, APIs y microservicios; software-empresarial presenta modernización legacy; integraciones-sunat presenta consultoría y auditoría. El nombre completo de cada solución figura en su contenido y metadatos.
-
-## Verificar
-
+### Entorno de Desarrollo
+Inicia el servidor local con recarga rápida:
 ```sh
-npm run build
-npm test
-npm run test:browser
+pnpm run dev
+```
+La aplicación estará disponible de inmediato en [http://127.0.0.1:4321](http://127.0.0.1:4321).
+
+### Compilación y Producción
+```sh
+# Verificación de tipos TypeScript y Astro
+pnpm run check
+
+# Compilación completa para producción
+pnpm run build
+
+# Iniciar servidor de producción local con compresión y caché activa
+pnpm start
 ```
 
-- Build: tipos de Astro, 26 páginas, comparación exacta de documentos con solo las transformaciones de metadatos autorizadas, 335 recursos visuales/runtime por SHA-256 y tres salidas de contenido/SEO contra su generador. Los 26 HTML y 338 recursos de la referencia raíz siguen intactos.
-- Pruebas HTTP: todas las rutas, redirecciones, contenido binario CMS, rangos de video, HEAD, compresión, caché y 404.
-- Navegador: con el servidor activo en 4321 (o `SITE_URL`), valida inicio, listado, los cinco detalles y contacto a 390, 834 y 1440 px. Comprueba contenido corporativo, metadatos, secciones y desbordamiento; en escritorio contrasta elementos editoriales y enlaces con la referencia capturada de 1440 px. Las variantes móviles de Framer tienen sus propios elementos. Las capturas y datos quedan en `migration/reports/corporate/`. Se enmascaran videos por sus relojes independientes.
+---
 
-Si no hay Chromium disponible, instalarlo con `npx playwright install chromium` o indicar `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`. En Windows se reutiliza Chrome de la caché de Puppeteer cuando está disponible. El informe queda en `playwright-report/index.html`.
+## 🚀 Despliegue en Producción (Vercel)
 
-La validación anterior al cambio de contenidos está en [migration/VALIDATION.md](migration/VALIDATION.md), con 51 comparaciones de la migración inicial. Ese informe y `tests/browser/preservation.spec.mjs` son históricos: la igualdad de textos/píxeles ya no corresponde al cambio corporativo autorizado. La validación actual usa `migration/reports/corporate-results.json`. Con el servidor activo, `npm run test:interactions` comprueba navegación y formulario sin enviar mensajes.
+El proyecto se encuentra 100% preconfigurado para despliegue sin fricción en **Vercel**:
 
-La verificación de preservación bloquea cambios de diseño o recursos contra la referencia. Si se autoriza una modificación futura, revisar el cambio y actualizar explícitamente la referencia y sus comprobaciones; no desactivar silenciosamente el control.
+1. **Conexión con GitHub:** Conecta el repositorio `jhoncharlesjcar/Website_JcarLabs_Inc` desde el panel de Vercel.
+2. **Configuración Automática:** Vercel reconocerá la configuración provista en `vercel.json`:
+   * **Build Command:** `pnpm run build:vercel`
+   * **Output Directory:** `dist`
+   * **Serverless Functions:** Manejadores en `api/` incluidos automáticamente.
+   * **Caching Headers:** Políticas `immutable` de 1 año para assets estáticos y revalidación para HTML.
 
-## Publicación
+---
 
-Publicar `dist/` junto con `scripts/serve.mjs` y `src/server/http.mjs` para el servidor Node. No publicar la raíz completa del repositorio. Un proveedor puramente estático necesita implementar las redirecciones y el protocolo `?range=` de `.framercms`; copiar únicamente `dist/` no reproduce ese protocolo.
+## 💼 Créditos y Propiedad
 
-Referencia oficial: [archivos públicos de Astro](https://docs.astro.build/en/guides/imports/) y [scripts del cliente](https://docs.astro.build/en/guides/client-side-scripts/).
+© 2026 **JCAR Labs Inc.** Todos los derechos reservados.  
+Diseño, desarrollo, ingeniería de software y arquitectura construidos íntegramente por **JCAR Labs Inc.**

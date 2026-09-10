@@ -1,2 +1,0 @@
-import{t as e}from"./rolldown-runtime.Dh6celcD.mjs";function t(e,t){return{description:`Vertical is a bold, modern portfolio template for artists, designers, and studios. Designed with an editorial approach using strong typography, structured grids, and narrative layout to showcase projects, experiments and ideas clearly and confidently.`,robots:`max-image-preview:large`,socialImage:`assets/images/image-bundle-86.jpg`,title:`Vertical — Editorial-Style Portfolio`}}var n=e((()=>{}));export{t as n,n as t};
-//# sourceMappingURL=shared-lib.Eb-TmR8e.mjs.map
