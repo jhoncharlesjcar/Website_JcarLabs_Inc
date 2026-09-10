@@ -32,7 +32,7 @@ const MIME_TYPES = {
 
 const SECURITY_HEADERS = {
   // [2.1, 2.3] frame-ancestors 'self' previene clickjacking; form-action limitado a 'self'.
-  'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' blob: https:; font-src 'self' data:; connect-src 'self' https://api.framer.com https://*.framerusercontent.com; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com; frame-ancestors 'self'; form-action 'self'; base-uri 'self'; object-src 'none'",
+  'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.framer.com https://framer.com https://*.framerusercontent.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' blob: https:; font-src 'self' data: https:; connect-src 'self' https://api.framer.com https://*.framerusercontent.com https://*.framer.com https://events.framer.com; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com; frame-ancestors 'self'; form-action 'self'; base-uri 'self'; object-src 'none'",
   // [2.1] Compatibilidad con navegadores que no soportan frame-ancestors en CSP.
   'X-Frame-Options': 'SAMEORIGIN',
   // [2.2] HSTS activo solo cuando el servidor corre bajo HTTPS.

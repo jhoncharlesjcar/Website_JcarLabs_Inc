@@ -11,6 +11,7 @@ export function corporateDocument(source, route) {
   // [1.1] Eliminar meta etiquetas de Framer que revelan el proyecto original (incondicional).
   result = result.replace(/<meta\b[^>]*name="framer-search-index(?:-fallback)?"[^>]*>/g, '');
   result = result.replace(/<meta\b[^>]*name="framer-html-plugin"[^>]*>/g, '');
+  result = result.replace(/<iframe\b[^>]*id="__framer-editorbar"[^>]*><\/iframe>/g, '');
   // [1.2] Actualizar og:title, og:description, twitter:title, twitter:description;
   // y eliminar og:url, og:image, twitter:image que apunten al dominio de Framer.
   result = result.replace(/<meta\b[^>]*>/g, (tag) => {
