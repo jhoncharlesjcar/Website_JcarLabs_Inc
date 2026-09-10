@@ -1,0 +1,9 @@
+---
+import { getDocument } from '../lib/documents';
+
+interface Props { route: string }
+const document = getDocument(Astro.props.route);
+// No client router, CSS scoping, wrappers or second hydration root: Framer and
+// the local interactions retain ownership of the exact exported DOM.
+---
+<!DOCTYPE html><html {...document.htmlAttributes}><head {...document.headAttributes}><Fragment set:html={document.head} /></head><body {...document.bodyAttributes} set:html={document.body}></body></html>

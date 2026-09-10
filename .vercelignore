@@ -1,0 +1,33 @@
+# Directorios de build — generados localmente, Vercel los recrea en su entorno
+node_modules/
+dist/
+.astro/
+
+# Resultados de tests y reportes de auditoría (no necesarios en producción)
+playwright-report/
+test-results/
+migration/reports/
+migration/corporate-reference/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editores e IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos de entorno local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

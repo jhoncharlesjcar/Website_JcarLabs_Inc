@@ -1,0 +1,106 @@
+[
+  {
+    "route": "/404",
+    "file": "404/index.html"
+  },
+  {
+    "route": "/contact",
+    "file": "contact/index.html"
+  },
+  {
+    "route": "/",
+    "file": "index.html"
+  },
+  {
+    "route": "/privacy-policy",
+    "file": "privacy-policy/index.html"
+  },
+  {
+    "route": "/services/desarrollo-full-stack",
+    "file": "services/desarrollo-full-stack/index.html"
+  },
+  {
+    "route": "/services/desarrollo-web",
+    "file": "services/desarrollo-web/index.html"
+  },
+  {
+    "route": "/services",
+    "file": "services/index.html"
+  },
+  {
+    "route": "/services/integraciones-sunat",
+    "file": "services/integraciones-sunat/index.html"
+  },
+  {
+    "route": "/services/inteligencia-artificial",
+    "file": "services/inteligencia-artificial/index.html"
+  },
+  {
+    "route": "/services/software-empresarial",
+    "file": "services/software-empresarial/index.html"
+  },
+  {
+    "route": "/terms-of-use",
+    "file": "terms-of-use/index.html"
+  },
+  {
+    "route": "/thoughts/beyond-ai-aesthetics-what-human-led-digital-art-means-now",
+    "file": "thoughts/beyond-ai-aesthetics-what-human-led-digital-art-means-now/index.html"
+  },
+  {
+    "route": "/thoughts",
+    "file": "thoughts/index.html"
+  },
+  {
+    "route": "/thoughts/the-rise-of-experiential-minimalism-in-contemporary-exhibitions",
+    "file": "thoughts/the-rise-of-experiential-minimalism-in-contemporary-exhibitions/index.html"
+  },
+  {
+    "route": "/thoughts/when-images-begin-to-listen-the-quiet-power-of-responsive-art",
+    "file": "thoughts/when-images-begin-to-listen-the-quiet-power-of-responsive-art/index.html"
+  },
+  {
+    "route": "/thoughts/why-motion-first-art-is-defining-the-next-creative-era",
+    "file": "thoughts/why-motion-first-art-is-defining-the-next-creative-era/index.html"
+  },
+  {
+    "route": "/thoughts/why-slowness-is-becoming-a-radical-artistic-choice",
+    "file": "thoughts/why-slowness-is-becoming-a-radical-artistic-choice/index.html"
+  },
+  {
+    "route": "/work/fragile-perfection",
+    "file": "work/fragile-perfection/index.html"
+  },
+  {
+    "route": "/work",
+    "file": "work/index.html"
+  },
+  {
+    "route": "/work/nezus-bisuteria",
+    "file": "work/nezus-bisuteria/index.html"
+  },
+  {
+    "route": "/work/silent-gravity",
+    "file": "work/silent-gravity/index.html"
+  },
+  {
+    "route": "/work/sistema-hotelero",
+    "file": "work/sistema-hotelero/index.html"
+  },
+  {
+    "route": "/work/soluciones-empresariales",
+    "file": "work/soluciones-empresariales/index.html"
+  },
+  {
+    "route": "/work/still-pressure",
+    "file": "work/still-pressure/index.html"
+  },
+  {
+    "route": "/work/surface-tension",
+    "file": "work/surface-tension/index.html"
+  },
+  {
+    "route": "/work/unstable-sequence",
+    "file": "work/unstable-sequence/index.html"
+  }
+]

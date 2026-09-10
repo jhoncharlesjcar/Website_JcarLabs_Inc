@@ -1,0 +1,14 @@
+/* Requested correction: keep the numbered middle band from collapsing
+   when the tablet/desktop hero needs more room than the viewport. */
+@media (min-width: 810px) {
+  #main section[data-framer-name="Section 0 - Hero"] {
+    height: auto;
+    min-height: 100svh;
+  }
+
+  #main section[data-framer-name="Section 0 - Hero"] > [data-framer-name="Row 2"] {
+    flex: 1 0 auto;
+    height: auto;
+    min-height: clamp(220px, 20vw, 360px);
+  }
+}

@@ -1,0 +1,12 @@
+---
+import type { GetStaticPaths } from 'astro';
+import PreservedDocument from '../layouts/PreservedDocument.astro';
+import { routes } from '../lib/documents';
+
+export const getStaticPaths = (() => routes
+  .filter(({ route }) => route !== '/' && route !== '/404')
+  .map(({ route }) => ({ params: { path: route.slice(1) }, props: { route } }))) satisfies GetStaticPaths;
+
+interface Props { route: string }
+---
+<PreservedDocument route={Astro.props.route} />
