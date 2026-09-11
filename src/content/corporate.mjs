@@ -1,11 +1,8 @@
 // Corporate content approved by the brief. Routes and visual assets are retained.
 export const site = {
   name: 'JCAR Labs Inc.',
-  // [PENDIENTE] Descomentar cuando el dominio esté registrado y configurado:
-  // origin: 'https://jcarlabs.com',
-  // socialImage: 'https://jcarlabs.com/assets/images/og-jcarlabs.jpg',
-  origin: null,
-  socialImage: null,
+  origin: 'https://jcarlabs.com',
+  socialImage: 'https://jcarlabs.com/assets/images/hero-image-6.jpg',
   title: 'JCAR Labs Inc. — Ingeniería de Software, SaaS e IA',
   description: 'Ingeniería de software para negocios: productos SaaS, modernización de sistemas legacy, IA transmodal y agentes, arquitectura cloud y auditoría de código.',
   technologies: ['Python', 'JavaScript', 'React', 'Node.js', 'SQL', 'Java', 'PHP'],
@@ -124,7 +121,7 @@ export const services = [
       'Evolución con continuidad.',
       'Acordamos el alcance de la transición, los criterios de aceptación y las responsabilidades operativas. La nueva arquitectura se conecta con la realidad del sistema que ya sostiene al negocio.',
     ] },
-  { route: '/services/integraciones-sunat', number: '05', label: 'AUDITORÍA DE CÓDIGO', title: 'Consultoría de Arquitectura y Auditoría de Código',
+  { route: '/services/auditoria-de-codigo', number: '05', label: 'AUDITORÍA DE CÓDIGO', title: 'Consultoría de Arquitectura y Auditoría de Código',
     description: 'Consultoría de arquitectura y auditoría de código. Convertimos hallazgos técnicos en decisiones y prioridades para el negocio.',
     sourceTitle: 'Why Slowness Is Becoming a Radical Artistic Choice',
     sourceDescription: 'In a culture obsessed with speed, instant gratification, and constant refresh, artists are turning to slowness — not as nostalgia, but as resistance.',

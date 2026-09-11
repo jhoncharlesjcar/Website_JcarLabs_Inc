@@ -33,29 +33,30 @@ export function createBrandScript(original, sourceBlocks, runtime) {
   return result;
 }
 
-export const robots = 'User-agent: *\nAllow: /\n';
+export const robots = site.origin
+  ? `User-agent: *\nAllow: /\nSitemap: ${site.origin}/sitemap.xml\n`
+  : 'User-agent: *\nAllow: /\n';
 
-// [1.3] Sitemap con URLs completas cuando haya dominio. Sin dominio: vacío con aviso.
 function generateSitemap() {
   if (!site.origin) {
     return '<?xml version="1.0" encoding="UTF-8"?>\n<!-- Domain pending: set origin in src/content/corporate.mjs -->\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>\n';
   }
   const o = site.origin;
   const urls = [
-    { loc: `${o}/`,                                        priority: '1.0', changefreq: 'monthly' },
-    { loc: `${o}/services/`,                               priority: '0.9', changefreq: 'monthly' },
-    { loc: `${o}/work/`,                                   priority: '0.8', changefreq: 'monthly' },
-    { loc: `${o}/contact/`,                                priority: '0.7', changefreq: 'yearly'  },
-    { loc: `${o}/services/desarrollo-web/`,                priority: '0.8', changefreq: 'monthly' },
-    { loc: `${o}/services/inteligencia-artificial/`,       priority: '0.8', changefreq: 'monthly' },
-    { loc: `${o}/services/desarrollo-full-stack/`,         priority: '0.8', changefreq: 'monthly' },
-    { loc: `${o}/services/software-empresarial/`,          priority: '0.8', changefreq: 'monthly' },
-    { loc: `${o}/services/integraciones-sunat/`,           priority: '0.8', changefreq: 'monthly' },
-    { loc: `${o}/work/sistema-hotelero/`,                  priority: '0.6', changefreq: 'yearly'  },
-    { loc: `${o}/work/nezus-bisuteria/`,                   priority: '0.6', changefreq: 'yearly'  },
-    { loc: `${o}/work/soluciones-empresariales/`,          priority: '0.6', changefreq: 'yearly'  },
-    { loc: `${o}/privacy-policy/`,                         priority: '0.3', changefreq: 'yearly'  },
-    { loc: `${o}/terms-of-use/`,                           priority: '0.3', changefreq: 'yearly'  },
+    { loc: o,                                              priority: '1.0', changefreq: 'monthly' },
+    { loc: `${o}/services`,                                priority: '0.9', changefreq: 'monthly' },
+    { loc: `${o}/work`,                                    priority: '0.8', changefreq: 'monthly' },
+    { loc: `${o}/contact`,                                 priority: '0.7', changefreq: 'yearly'  },
+    { loc: `${o}/services/desarrollo-web`,                 priority: '0.8', changefreq: 'monthly' },
+    { loc: `${o}/services/inteligencia-artificial`,        priority: '0.8', changefreq: 'monthly' },
+    { loc: `${o}/services/desarrollo-full-stack`,          priority: '0.8', changefreq: 'monthly' },
+    { loc: `${o}/services/software-empresarial`,          priority: '0.8', changefreq: 'monthly' },
+    { loc: `${o}/services/auditoria-de-codigo`,            priority: '0.8', changefreq: 'monthly' },
+    { loc: `${o}/work/sistema-hotelero`,                   priority: '0.6', changefreq: 'yearly'  },
+    { loc: `${o}/work/nezus-bisuteria`,                    priority: '0.6', changefreq: 'yearly'  },
+    { loc: `${o}/work/soluciones-empresariales`,           priority: '0.6', changefreq: 'yearly'  },
+    { loc: `${o}/privacy-policy`,                          priority: '0.3', changefreq: 'yearly'  },
+    { loc: `${o}/terms-of-use`,                            priority: '0.3', changefreq: 'yearly'  },
   ];
   const entries = urls.map(({ loc, priority, changefreq }) =>
     `  <url><loc>${loc}</loc><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`

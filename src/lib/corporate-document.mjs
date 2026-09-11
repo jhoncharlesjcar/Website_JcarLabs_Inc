@@ -1,11 +1,13 @@
 import { site, services } from '../content/corporate.mjs';
+import { withUrlShim } from './url-shim.js';
+import { applyCorporateHtml } from './corporate-html.mjs';
 
 const escape = (text) => text.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 export function corporateDocument(source, route) {
   const service = services.find((item) => item.route === route);
   const title = service ? `${service.title} — ${site.name}` : route === '/' ? site.title : null;
   const description = service?.description || (['/', '/services', '/contact'].includes(route) ? site.description : null);
-  let result = source;
+  let result = withUrlShim(source);
   if (route === '/') result = result.replace('</head>', '<link rel="stylesheet" href="/hero-adjustments.css"></head>');
   if (title) result = result.replace(/<title>[\s\S]*?<\/title>/, `<title>${escape(title)}</title>`);
   // [1.1] Eliminar meta etiquetas de Framer que revelan el proyecto original (incondicional).
@@ -25,7 +27,7 @@ export function corporateDocument(source, route) {
   result = result.replace(/<meta\b[^>]*property="og:url"[^>]*>/g, '');
   // [1.4 + 3.3] Insertar canonical, og:url y hreflang propios cuando haya dominio.
   if (site.origin && route !== '/404') {
-    const canonicalUrl = `${site.origin}${route === '/' ? '' : route}/`;
+    const canonicalUrl = `${site.origin}${route === '/' ? '' : route}`;
     const ogImageTag = site.socialImage
       ? `<meta property="og:image" content="${escape(site.socialImage)}"><meta name="twitter:image" content="${escape(site.socialImage)}">`
       : '';
@@ -38,16 +40,28 @@ export function corporateDocument(source, route) {
     );
   }
   // [3.1] Añadir noindex a rutas /thoughts (artículos de arte, redirigidas a /services).
-  if (route === '/thoughts' || route.startsWith('/thoughts/')) {
+  if (
+    route === '/thoughts' || route.startsWith('/thoughts/') ||
+    route === '/work/fragile-perfection' || route === '/work/silent-gravity' ||
+    route === '/work/still-pressure' || route === '/work/surface-tension' ||
+    route === '/work/unstable-sequence' || route === '/services/integraciones-sunat'
+  ) {
     result = result.replace('</head>', '<meta name="robots" content="noindex, nofollow"></head>');
   }
   result = result.replace(/(<script\b[^>]*type="application\/ld\+json"[^>]*>)([\s\S]*?)(<\/script>)/g, (_, open, text, close) => {
-    const schema = JSON.parse(text);
+    let schema;
+    try { schema = JSON.parse(text); }
+    catch { return _; }
     function clean(value) {
       if (!value || typeof value !== 'object') return;
       for (const [key, item] of Object.entries(value)) {
-        if (typeof item === 'string' && item.startsWith('https://vertical.framer.media')) delete value[key];
-        else clean(item);
+        if (typeof item === 'string' && item.startsWith('https://vertical.framer.media')) {
+          if (site.origin && (key === 'url' || key === '@id')) {
+            value[key] = `${site.origin}${route === '/' ? '' : route}`;
+          } else {
+            delete value[key];
+          }
+        } else clean(item);
       }
     }
     clean(schema);
@@ -56,10 +70,12 @@ export function corporateDocument(source, route) {
     return open + JSON.stringify(schema).replaceAll('<', '\\u003c') + close;
   });
   result = result.replace(/(<script data-production-metadata>[\s\S]*?const m=)(\{[^;]+\})(;)/, (_, open, json, close) => {
-    const metadata = JSON.parse(json);
+    let metadata;
+    try { metadata = JSON.parse(json); }
+    catch { return _; }
     if (title) metadata.title = title;
     if (description) metadata.description = description;
     return open + JSON.stringify(metadata).replaceAll('<', '\\u003c') + close;
   });
-  return result;
+  return applyCorporateHtml(result);
 }

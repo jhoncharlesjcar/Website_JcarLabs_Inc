@@ -176,7 +176,7 @@ html.has-jcar-site-header .framer-acibs0 {
   background-position: calc(50% + var(--jcar-pointer-x, 0) * 8px) calc(50% + var(--jcar-parallax-y, 0px));
 }
 
-@media (max-width: 809.98px) {
+@media (max-width: 1100px) {
   .jcar-site-header {
     height: 72px;
     overflow: visible;
@@ -604,8 +604,10 @@ html.jcar-static-page main:not([hidden]) {
 }
 
 .jcar-list h1 {
-  font-size: clamp(76px, 18vw, 290px);
+  font-size: clamp(48px, 12vw, 180px);
   margin-bottom: 36px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .jcar-list__grid {
@@ -624,10 +626,10 @@ html.jcar-static-page main:not([hidden]) {
     "title visual"
     "description visual"
     "arrow visual";
-  grid-template-columns: minmax(300px, 42%) minmax(0, 58%);
+  grid-template-columns: minmax(0, 42%) minmax(0, 58%);
   grid-template-rows: auto auto 1fr auto auto;
-  height: max(720px, 100svh);
-  min-height: 720px;
+  height: auto;
+  min-height: max(640px, 100svh);
   overflow: hidden;
   padding: clamp(30px, 4vw, 64px);
 }
@@ -639,13 +641,13 @@ html.jcar-static-page main:not([hidden]) {
     "visual title"
     "visual description"
     "visual arrow";
-  grid-template-columns: minmax(0, 58%) minmax(300px, 42%);
+  grid-template-columns: minmax(0, 58%) minmax(0, 42%);
 }
 
 .jcar-card__number { grid-area: number; }
 .jcar-card__tags { grid-area: tags; margin-top: 40px; }
-.jcar-card h2 { grid-area: title; align-self: end; font-size: clamp(48px, 7vw, 118px); max-width: 8ch; }
-.jcar-card__description { grid-area: description; font-size: clamp(18px, 1.6vw, 28px); }
+.jcar-card h2 { grid-area: title; align-self: end; font-size: clamp(36px, 5vw, 88px); max-width: 100%; overflow-wrap: anywhere; }
+.jcar-card__description { grid-area: description; font-size: clamp(16px, 1.5vw, 24px); overflow-wrap: anywhere; }
 .jcar-card__arrow { grid-area: arrow; align-self: end; justify-self: end; position: static; }
 
 .jcar-card__visual {
@@ -716,10 +718,11 @@ html.has-jcar-site-header .jcar-work-list { padding-top: 0; }
 }
 
 .jcar-work-card h2 {
-  font: 700 clamp(64px, 7.1vw, 92px)/0.94 Inter, sans-serif;
-  letter-spacing: -0.075em;
+  font: 700 clamp(42px, 5.6vw, 78px)/1 Inter, sans-serif;
+  letter-spacing: -0.06em;
   margin: 0;
-  max-width: 6.7ch;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   text-transform: uppercase;
 }
 
@@ -838,8 +841,8 @@ html.has-jcar-site-header .jcar-work-list { padding-top: 0; }
   box-sizing: border-box !important;
   color: #dedede !important;
   display: block !important;
-  height: max(720px, 100svh) !important;
-  min-height: 720px !important;
+  height: auto !important;
+  min-height: max(720px, 100svh) !important;
   overflow: hidden !important;
   padding: clamp(58px, 7vh, 78px) clamp(24px, 2vw, 34px) 24px !important;
   width: 100% !important;
@@ -848,9 +851,9 @@ html.has-jcar-site-header .jcar-work-list { padding-top: 0; }
 .jcar-about__grid {
   display: grid;
   gap: clamp(36px, 4.4vw, 70px);
-  grid-template-columns: minmax(300px, 0.95fr) minmax(320px, 1fr) minmax(300px, 0.95fr);
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr) minmax(0, 0.95fr);
   grid-template-rows: minmax(0, 1fr);
-  height: 100%;
+  height: auto;
   margin: 0 auto;
   max-width: 1500px;
 }
@@ -878,20 +881,24 @@ html.has-jcar-site-header .jcar-work-list { padding-top: 0; }
 }
 
 .jcar-about__display {
-  font: 700 clamp(102px, 10.3vw, 168px)/0.72 Inter, sans-serif;
-  letter-spacing: -0.1em;
-  margin-left: -0.06em !important;
-  white-space: nowrap;
+  font: 700 clamp(72px, 9vw, 168px)/0.82 Inter, sans-serif;
+  letter-spacing: -0.08em;
+  margin-left: 0 !important;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .jcar-about__identity h2 {
   border-bottom: 5px solid #81ff28;
   color: #81ff28;
-  font: 700 clamp(29px, 3.3vw, 54px)/0.9 Inter, sans-serif;
-  letter-spacing: -0.075em;
+  font: 700 clamp(22px, 2.6vw, 48px)/0.95 Inter, sans-serif;
+  letter-spacing: -0.06em;
   margin-top: 28px !important;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   padding-bottom: 8px;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .jcar-about__meta {
@@ -999,7 +1006,8 @@ html.has-jcar-site-header .jcar-work-list { padding-top: 0; }
   font: 700 clamp(28px, 3.45vw, 52px)/0.94 Inter, sans-serif;
   letter-spacing: -0.065em;
   margin-top: 10px !important;
-  max-width: 11ch;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .jcar-about__work > p {
@@ -1017,9 +1025,10 @@ html.has-jcar-site-header .jcar-work-list { padding-top: 0; }
 }
 
 .jcar-about__statement {
-  font: 700 clamp(29px, 3.3vw, 50px)/0.88 Inter, sans-serif;
-  letter-spacing: -0.075em;
-  max-width: 11ch;
+  font: 700 clamp(24px, 2.8vw, 46px)/0.95 Inter, sans-serif;
+  letter-spacing: -0.06em;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   text-transform: uppercase;
 }
 
@@ -1039,8 +1048,10 @@ html.has-jcar-site-header .jcar-work-list { padding-top: 0; }
 }
 
 .jcar-about__profile li {
-  font: 700 clamp(13px, 1.4vw, 20px)/0.98 Inter, sans-serif;
+  font: 700 clamp(13px, 1.4vw, 20px)/1.15 Inter, sans-serif;
   letter-spacing: -0.045em;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .jcar-about__profile > a {
@@ -1294,11 +1305,13 @@ html.has-jcar-site-header .jcar-work-list { padding-top: 0; }
 }
 
 .jcar-contact__wordmark {
-  font: 700 clamp(118px, 20vw, 320px)/.8 Inter, sans-serif;
-  letter-spacing: -.1em;
+  font: 700 clamp(48px, 12vw, 180px)/.88 Inter, sans-serif;
+  letter-spacing: -.08em;
+  max-width: 100%;
   overflow: hidden;
+  overflow-wrap: anywhere;
   padding: 38px 2vw 26px;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .jcar-contact__directory {
@@ -1362,7 +1375,7 @@ html:has(.jcar-services) .framer-acibs0 :where(p, a, svg) {
   background: #f2f2f2;
   box-sizing: border-box;
   color: #050609;
-  height: 608px;
+  height: auto;
   min-width: 0;
   overflow: hidden;
   width: 100%;
@@ -1372,7 +1385,7 @@ html:has(.jcar-services) .framer-acibs0 :where(p, a, svg) {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  height: 314px;
+  height: auto;
   justify-content: flex-start;
   min-width: 0;
   padding: 0 24px 20px;
@@ -1380,10 +1393,12 @@ html:has(.jcar-services) .framer-acibs0 :where(p, a, svg) {
 }
 
 .jcar-services__title h1 {
-  font: 700 clamp(128px, 18.87vw, 300px)/1 Inter, sans-serif;
-  letter-spacing: -0.095em;
-  margin: 0 0 20px -24px;
-  white-space: nowrap;
+  font: 700 clamp(56px, 14vw, 220px)/0.9 Inter, sans-serif;
+  letter-spacing: -0.08em;
+  margin: 0 0 20px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .jcar-services__index {
@@ -1412,15 +1427,17 @@ html:has(.jcar-services) .framer-acibs0 :where(p, a, svg) {
   box-sizing: border-box;
   color: #fff;
   display: flex;
-  height: 294px;
+  height: auto;
+  min-height: 180px;
   padding: 54px 24px 60px;
 }
 
 .jcar-services__statement h2 {
-  font: 700 clamp(42px, 7.03vw, 112px)/1 Inter, sans-serif;
-  letter-spacing: -0.07em;
+  font: 700 clamp(32px, 5.4vw, 88px)/1.02 Inter, sans-serif;
+  letter-spacing: -0.06em;
   margin: 0;
-  max-width: none;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   text-transform: uppercase;
 }
 
@@ -1434,9 +1451,9 @@ html:has(.jcar-services) .framer-acibs0 :where(p, a, svg) {
   background: #f2f2f2;
   color: #050609;
   display: grid;
-  grid-template-columns: 52% 48%;
-  height: max(800px, 100svh);
-  min-height: 800px;
+  grid-template-columns: minmax(0, 52%) minmax(0, 48%);
+  height: auto;
+  min-height: max(640px, 100svh);
   min-width: 0;
   overflow: hidden;
   text-decoration: none;
@@ -1464,11 +1481,12 @@ html:has(.jcar-services) .framer-acibs0 :where(p, a, svg) {
 
 .jcar-service-card h2 {
   align-self: flex-start;
-  font: 700 clamp(48px, 5vw, 92px)/0.98 Inter, sans-serif;
-  letter-spacing: -0.06em;
-  margin: 94px 0 34px;
-  max-width: 12ch;
-  min-height: 200px;
+  font: 700 clamp(36px, 4.2vw, 72px)/1.02 Inter, sans-serif;
+  letter-spacing: -0.05em;
+  margin: 48px 0 24px;
+  max-width: 100%;
+  min-height: 0;
+  overflow-wrap: anywhere;
   opacity: 0;
   transform: translateY(75px);
   text-transform: uppercase;
@@ -1486,10 +1504,11 @@ html:has(.jcar-services) .framer-acibs0 :where(p, a, svg) {
 }
 
 .jcar-service-card__description {
-  font: 650 clamp(18px, 1.8vw, 27px)/1.12 Inter, sans-serif;
-  letter-spacing: -0.045em;
-  margin: 32px 0 0;
-  max-width: 31ch;
+  font: 650 clamp(16px, 1.6vw, 24px)/1.2 Inter, sans-serif;
+  letter-spacing: -0.035em;
+  margin: 24px 0 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   text-transform: uppercase;
 }
 
@@ -1658,21 +1677,22 @@ footer.jcar-services-footer {
 .jcar-services-footer__name,
 .jcar-services-footer__wordmark {
   font-weight: 700;
-  letter-spacing: -0.09em;
+  letter-spacing: -0.08em;
   margin: 0;
+  overflow-wrap: anywhere;
   text-transform: uppercase;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .jcar-services-footer__name {
   border-bottom: 1px solid #050609;
   align-items: center;
   display: flex;
-  font-size: clamp(240px, 32vw, 620px);
-  height: clamp(190px, 14vw, 280px);
-  line-height: 0.72;
+  font-size: clamp(42px, 10vw, 160px);
+  height: auto;
+  line-height: 0.85;
   overflow: hidden;
-  padding: 0 0.8vw;
+  padding: 12px 1.4vw;
 }
 
 .jcar-services-footer__directory {
@@ -1718,11 +1738,11 @@ footer.jcar-services-footer {
 .jcar-services-footer__wordmark {
   align-items: center;
   display: flex;
-  font-size: clamp(240px, 32vw, 620px);
-  height: clamp(240px, 19vw, 365px);
-  line-height: 0.72;
+  font-size: clamp(42px, 10vw, 160px);
+  height: auto;
+  line-height: 0.85;
   overflow: hidden;
-  padding: 0;
+  padding: 12px 1.4vw;
 }
 
 .jcar-services-footer__bottom {
@@ -2588,5 +2608,74 @@ footer.jcar-services-footer {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* Keep copy inside its boxes. Spanish strings are longer than the Framer English layout. */
+html,
+body {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+#main,
+.jcar-about,
+.jcar-services,
+.jcar-list,
+.jcar-contact,
+.jcar-detail,
+.jcar-legal,
+.jcar-not-found {
+  max-width: 100%;
+  min-width: 0;
+}
+
+#main :where(p, h1, h2, h3, h4, h5, h6, li, blockquote, cite, label, td, th),
+.jcar-about :where(p, h1, h2, h3, li, blockquote, a),
+.jcar-services :where(p, h1, h2, h3, li, a, strong),
+.jcar-list :where(p, h1, h2, li),
+.jcar-contact :where(p, h1, h2, label, a),
+.jcar-detail :where(p, h1, h2, h3, li, a, strong),
+.jcar-legal :where(p, h1, h2, li) {
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+#main [data-framer-component-type="RichTextContainer"],
+#main .framer-text {
+  max-width: 100% !important;
+  min-width: 0 !important;
+  overflow-wrap: anywhere;
+}
+
+.jcar-logo-lockup::after {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.jcar-detail__related strong,
+.jcar-detail__share p,
+.jcar-service-detail h1,
+.jcar-detail h1,
+.jcar-detail h2 {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1199.98px) {
+  .jcar-about__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .jcar-about__identity,
+  .jcar-about__work,
+  .jcar-about__profile {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
   }
 }

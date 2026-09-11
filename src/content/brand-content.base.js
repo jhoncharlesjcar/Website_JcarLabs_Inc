@@ -321,12 +321,12 @@
       description: "Diseñamos software alrededor de los procesos reales del negocio para centralizar información, reducir fricción y mantener el control a medida que la operación crece.",
       tags: ["Software a medida", "Procesos", "Datos", "Escalabilidad"],
     },
-    "/services/integraciones-sunat": {
+    "/services/auditoria-de-codigo": {
       kicker: "SERVICIO 05",
-      title: "Integraciones SUNAT",
-      lead: "Facturación electrónica conectada con la operación diaria.",
-      description: "Integramos emisión electrónica y flujos administrativos para que ventas, comprobantes e información tributaria funcionen como parte de un mismo sistema.",
-      tags: ["SUNAT", "Facturación electrónica", "APIs", "Automatización"],
+      title: "Consultoría de Arquitectura y Auditoría de Código",
+      lead: "Consultoría de arquitectura y auditoría de código. Convertimos hallazgos técnicos en decisiones y prioridades para el negocio.",
+      description: "Revisamos cómo está construido un sistema y qué necesita para continuar evolucionando. El resultado es una hoja de ruta priorizada, con evidencia y un alcance acordado.",
+      tags: ["Arquitectura", "Código", "Seguridad", "Mantenibilidad"],
     },
   }
 
@@ -346,11 +346,11 @@
       title: "Servicios",
       lead: "Tecnología que hace crecer negocios.",
       items: [
-        { number: "01", title: "Desarrollo Web", description: "Sitios modernos, responsivos y optimizados para buscadores.", href: "/services/desarrollo-web", tags: "WEB · SEO · UX/UI", image: "/assets/images/image-bundle-68.jpeg", avatar: "/assets/images/adam-knoxville.jpg" },
-        { number: "02", title: "Inteligencia Artificial", description: "Modelos de IA y automatización aplicados a procesos reales.", href: "/services/inteligencia-artificial", tags: "IA · AUTOMATIZACIÓN", image: "/assets/images/image-14.jpg", avatar: "/assets/images/jane-ohara.jpg" },
-        { number: "03", title: "Desarrollo Full Stack", description: "Productos completos desde la base de datos hasta la interfaz.", href: "/services/desarrollo-full-stack", tags: "FRONTEND · BACKEND", image: "/assets/images/image-19.jpg", avatar: "/assets/images/matthew-spears.png" },
-        { number: "04", title: "Software Empresarial", description: "Sistemas a medida para organizar y escalar operaciones.", href: "/services/software-empresarial", tags: "SOFTWARE · PROCESOS", image: "/assets/images/image-35.jpg", avatar: "/assets/images/freja-andersson.jpg" },
-        { number: "05", title: "Integraciones SUNAT", description: "Facturación electrónica conectada con la operación diaria.", href: "/services/integraciones-sunat", tags: "SUNAT · AUTOMATIZACIÓN", image: "/assets/images/image-9.jpeg", avatar: "/assets/images/adam-knoxville.jpg" },
+        { number: "01", title: "Desarrollo Web", description: "Sitios modernos, responsivos y optimizados para buscadores.", href: "/services/desarrollo-web", tags: "WEB · SEO · UX/UI", image: "/assets/images/image-bundle-68.jpeg", avatar: "/assets/images/image-bundle-68.jpeg" },
+        { number: "02", title: "Inteligencia Artificial", description: "Modelos de IA y automatización aplicados a procesos reales.", href: "/services/inteligencia-artificial", tags: "IA · AUTOMATIZACIÓN", image: "/assets/images/image-14.jpg", avatar: "/assets/images/image-14.jpg" },
+        { number: "03", title: "Desarrollo Full Stack", description: "Productos completos desde la base de datos hasta la interfaz.", href: "/services/desarrollo-full-stack", tags: "FRONTEND · BACKEND", image: "/assets/images/image-19.jpg", avatar: "/assets/images/image-19.jpg" },
+        { number: "04", title: "Software Empresarial", description: "Sistemas a medida para organizar y escalar operaciones.", href: "/services/software-empresarial", tags: "SOFTWARE · PROCESOS", image: "/assets/images/image-35.jpg", avatar: "/assets/images/image-35.jpg" },
+        { number: "05", title: "AUDITORÍA DE CÓDIGO", description: "Consultoría de arquitectura y auditoría de código para priorizar riesgos y mejoras.", href: "/services/auditoria-de-codigo", tags: "ARQUITECTURA · CÓDIGO · SEGURIDAD", image: "/assets/images/image-9.jpeg", avatar: "/assets/images/image-9.jpeg" },
       ],
     },
   }
@@ -364,7 +364,7 @@
       sections: [
         ["01", "Información que recopilamos", "Podemos recibir tu nombre, correo electrónico, teléfono y el contenido que compartas voluntariamente mediante nuestros formularios o canales de contacto. También podemos recopilar datos técnicos básicos, como tipo de navegador, región y uso del sitio."],
         ["02", "Cómo utilizamos la información", "Usamos estos datos para responder consultas, preparar propuestas, prestar nuestros servicios, mantener la seguridad del sitio y mejorar la experiencia. No vendemos información personal ni la utilizamos para fines ajenos a JCAR Labs."],
-        ["03", "Cookies y analítica", "El sitio puede utilizar cookies esenciales y medición de uso para recordar preferencias, detectar errores y comprender el rendimiento. Puedes restringirlas desde la configuración de tu navegador."],
+        ["03", "Cookies y analítica", "El sitio puede utilizar cookies esenciales necesarias para su funcionamiento. No utilizamos cookies de medición ni analítica propia en este momento."],
         ["04", "Conservación y seguridad", "Conservamos los datos únicamente durante el tiempo necesario para atender la finalidad informada o cumplir obligaciones legales. Aplicamos medidas razonables para prevenir acceso, pérdida, uso o divulgación no autorizados."],
         ["05", "Servicios de terceros", "Algunas funciones pueden depender de proveedores de alojamiento, analítica, correo o mensajería. Solo reciben la información necesaria para prestar su función y se rigen por sus propias políticas."],
         ["06", "Tus derechos", "Puedes solicitar acceso, rectificación o eliminación de tus datos, así como retirar un consentimiento otorgado. Evaluaremos cada solicitud de acuerdo con la legislación aplicable."],
@@ -482,7 +482,7 @@
         "/thoughts/when-images-begin-to-listen-the-quiet-power-of-responsive-art": "/services/inteligencia-artificial",
         "/thoughts/the-rise-of-experiential-minimalism-in-contemporary-exhibitions": "/services/desarrollo-full-stack",
         "/thoughts/why-motion-first-art-is-defining-the-next-creative-era": "/services/software-empresarial",
-        "/thoughts/why-slowness-is-becoming-a-radical-artistic-choice": "/services/integraciones-sunat",
+        "/thoughts/why-slowness-is-becoming-a-radical-artistic-choice": "/services/auditoria-de-codigo",
       }
       if (absolute.origin === location.origin && serviceRoutes[absolute.pathname]) anchor.href = serviceRoutes[absolute.pathname]
 
@@ -580,9 +580,9 @@
         </div>
         <div class="jcar-about__work" data-jcar-reveal>
           <figure class="jcar-about__portrait">
-            <img class="jcar-about__portrait-base" src="/assets/images/adam-knoxville.jpg" alt="Retrato editorial de JCAR Labs Inc.">
-            <img class="jcar-about__portrait-layer jcar-about__portrait-layer--one" src="/assets/images/adam-knoxville.jpg" alt="" aria-hidden="true">
-            <img class="jcar-about__portrait-layer jcar-about__portrait-layer--two" src="/assets/images/adam-knoxville.jpg" alt="" aria-hidden="true">
+            <img class="jcar-about__portrait-base" src="/assets/images/hero-image-6.jpg" alt="JCAR Labs Inc.">
+            <img class="jcar-about__portrait-layer jcar-about__portrait-layer--one" src="/assets/images/hero-image-6.jpg" alt="" aria-hidden="true">
+            <img class="jcar-about__portrait-layer jcar-about__portrait-layer--two" src="/assets/images/hero-image-6.jpg" alt="" aria-hidden="true">
           </figure>
           <h3>CREAMOS SOFTWARE, WEB, SISTEMAS E IA.</h3>
           <p>CADA PROYECTO PARTE DE UNA NECESIDAD REAL. LA ESTRATEGIA DEFINE EL SIGUIENTE PASO.</p>
@@ -592,14 +592,14 @@
           <p class="jcar-about__statement">SOMOS UN EQUIPO DIGITAL. TRABAJAMOS CON ESTRATEGIA, SISTEMAS E ITERACIÓN. ALGUNAS IDEAS SE RESUELVEN RÁPIDO; OTRAS EVOLUCIONAN CON EL NEGOCIO.</p>
           <p class="jcar-about__label">LO QUE HACEMOS</p>
           <ul>
-            <li>DESARROLLO WEB</li>
-            <li>SOFTWARE A MEDIDA</li>
-            <li>INTELIGENCIA ARTIFICIAL</li>
-            <li>AUTOMATIZACIÓN</li>
-            <li>DESARROLLO FULL STACK</li>
-            <li>INTEGRACIONES SUNAT</li>
+            <li>SOFTWARE &amp; SAAS</li>
+            <li>SISTEMAS LEGACY</li>
+            <li>IA, AGENTES &amp; LLMOPS</li>
+            <li>CLOUD &amp; APIS</li>
+            <li>AUDITORÍA DE CÓDIGO</li>
             <li>UX/UI</li>
-            <li>SISTEMAS EMPRESARIALES</li>
+            <li>ARQUITECTURA</li>
+            <li>PRODUCTO DIGITAL</li>
           </ul>
           <a href="/work">VER PROYECTOS <span aria-hidden="true">↗</span></a>
         </div>
@@ -619,7 +619,7 @@
       "/thoughts/why-slowness-is-becoming-a-radical-artistic-choice",
     ]
     for (const anchor of document.querySelectorAll("a[href]")) {
-      const pathname = new URL(anchor.href, location.href).pathname
+      const pathname = new URL(anchor.href, location.href).pathname.replace(/\/$/, "") || "/"
       if (!paths.includes(pathname)) continue
       anchor.hidden = true
       anchor.setAttribute("aria-hidden", "true")
@@ -848,15 +848,15 @@
     const currentItem = listingPages[isService ? "/services" : "/work"].items.find((item) => item.href === location.pathname)
     const editorialSections = isService
       ? [
-          ["01 / ENFOQUE", "ESTRATEGIA ANTES QUE TECNOLOGÍA", `Comenzamos entendiendo el objetivo, el usuario y el contexto operativo. ${detail.description}`],
-          ["02 / CONSTRUCCIÓN", "DISEÑO, IMPLEMENTACIÓN Y PRUEBAS", `Convertimos el alcance en una solución usable, mantenible y preparada para evolucionar. Trabajamos con ${detail.tags.join(", ")}.`],
+          ["01 / ENFOQUE", "ESTRATEGIA ANTES QUE TECNOLOGÍA", `Comenzamos entendiendo el objetivo, el usuario y el contexto operativo. ${escapeHTML(detail.description)}`],
+          ["02 / CONSTRUCCIÓN", "DISEÑO, IMPLEMENTACIÓN Y PRUEBAS", `Convertimos el alcance en una solución usable, mantenible y preparada para evolucionar. Trabajamos con ${escapeHTML(detail.tags.join(", "))}.`],
           ["03 / EVOLUCIÓN", "UN PRODUCTO QUE PUEDE CRECER", "Publicamos con una base sólida, medimos el funcionamiento y priorizamos las siguientes mejoras con criterio de negocio."],
         ]
       : [
-          ["03 / CONTEXTO", "UNA NECESIDAD REAL CONVERTIDA EN PRODUCTO", detail.description],
+          ["03 / CONTEXTO", "UNA NECESIDAD REAL CONVERTIDA EN PRODUCTO", escapeHTML(detail.description)],
           ["04 / ENFOQUE", "CLARIDAD, CONTROL Y ESCALABILIDAD", "La solución se planteó desde los flujos esenciales, reduciendo fricción y organizando la información alrededor del trabajo cotidiano."],
           ["05 / RETO", "UNIFICAR PROCESOS SIN AÑADIR COMPLEJIDAD", "El reto fue transformar distintas necesidades operativas en una experiencia coherente, clara y preparada para crecer."],
-          ["06 / SOLUCIÓN", "ARQUITECTURA Y EXPERIENCIA COMO UN SOLO SISTEMA", `Diseño, desarrollo e integración se trabajaron en conjunto mediante ${detail.tags.join(", ")}.`],
+          ["06 / SOLUCIÓN", "ARQUITECTURA Y EXPERIENCIA COMO UN SOLO SISTEMA", `Diseño, desarrollo e integración se trabajaron en conjunto mediante ${escapeHTML(detail.tags.join(", "))}.`],
           ["07 / RESULTADO", "UNA BASE DIGITAL LISTA PARA EVOLUCIONAR", "El producto centraliza la operación principal y ofrece una estructura mantenible para incorporar nuevas capacidades."],
         ]
 
@@ -864,25 +864,25 @@
       <section class="jcar-service-detail__header" data-jcar-reveal>
         <aside>
           <a class="jcar-service-detail__back" href="/services">← SERVICIOS</a>
-          <img src="${currentItem?.avatar || "/assets/images/adam-knoxville.jpg"}" alt="Equipo de JCAR Labs Inc.">
+          <img src="${currentItem?.avatar || currentItem?.image || "/assets/images/hero-image-6.jpg"}" alt="JCAR Labs Inc.">
           <p>DESARROLLADO POR<br><strong>JCAR LABS INC.</strong></p>
           <div aria-hidden="true"></div>
         </aside>
         <div class="jcar-service-detail__headline">
           <p>SERVICIO ${currentItem?.number || "01"} · 2026</p>
-          <h1>${detail.title}</h1>
+          <h1>${escapeHTML(detail.title)}</h1>
           <span aria-hidden="true"></span>
-          <h2>${detail.lead}</h2>
-          <small>ALCANCE · ${detail.tags.join(" · ")}</small>
+          <h2>${escapeHTML(detail.lead)}</h2>
+          <small>ALCANCE · ${escapeHTML(detail.tags.join(" · "))}</small>
         </div>
       </section>
       <section class="jcar-service-detail__overview" data-jcar-reveal>
         <div class="jcar-service-detail__overview-copy">
           <p>01 / VISIÓN GENERAL</p>
           <h2>TECNOLOGÍA DISEÑADA PARA RESOLVER ALGO REAL.</h2>
-          <p>${detail.description}</p>
+          <p>${escapeHTML(detail.description)}</p>
         </div>
-        <figure><img src="${currentItem?.image || "/assets/images/bg-image-28.jpeg"}" alt="${detail.title}" loading="lazy"></figure>
+        <figure><img src="${currentItem?.image || "/assets/images/bg-image-28.jpeg"}" alt="${escapeHTML(detail.title)}" loading="lazy"></figure>
       </section>
       <section class="jcar-service-detail__article" data-jcar-reveal>
         <p>02 / CÓMO TRABAJAMOS</p>
@@ -893,26 +893,26 @@
       </section>
       <section class="jcar-service-detail__summary" data-jcar-reveal>
         <p>03 / SIGUIENTE PASO</p>
-        <h2>LISTO PARA CONSTRUIR ${detail.title}.</h2>
-        <div><p>${detail.lead}</p><a href="${CONTACT_URL}" target="_blank" rel="noopener noreferrer">HABLEMOS DE TU PROYECTO →</a></div>
+        <h2>LISTO PARA CONSTRUIR ${escapeHTML(detail.title)}.</h2>
+        <div><p>${escapeHTML(detail.lead)}</p><a href="${CONTACT_URL}" target="_blank" rel="noopener noreferrer">HABLEMOS DE TU PROYECTO →</a></div>
       </section>
       <section class="jcar-service-detail__more" data-jcar-reveal>
         <h2>MÁS SERVICIOS</h2>
-        <div>${siblingItems.map((item) => `<a href="${item.href}"><span>${item.number}</span><strong>${item.title}</strong><i>↗</i></a>`).join("")}</div>
+        <div>${siblingItems.map((item) => `<a href="${escapeHTML(item.href)}"><span>${escapeHTML(item.number)}</span><strong>${escapeHTML(item.title)}</strong><i>↗</i></a>`).join("")}</div>
       </section>` : `
       <section class="jcar-detail__hero jcar-panel jcar-detail__hero--media" data-jcar-reveal style="--jcar-detail-media:url('${detail.media?.[0] || "/assets/images/bg-image-28.jpeg"}')">
         <a class="jcar-detail__back" href="${location.pathname.startsWith("/services/") ? "/services" : "/work"}">← Volver</a>
-        <p class="jcar-detail__kicker">${detail.kicker}</p>
-        <h1>${detail.title}</h1>
-        <p class="jcar-detail__lead">${detail.lead}</p>
+        <p class="jcar-detail__kicker">${escapeHTML(detail.kicker)}</p>
+        <h1>${escapeHTML(detail.title)}</h1>
+        <p class="jcar-detail__lead">${escapeHTML(detail.lead)}</p>
         <div class="jcar-detail__index">JCL / 2026</div>
       </section>
       <section class="jcar-detail__intro jcar-panel jcar-panel--light" data-jcar-reveal>
         <p class="jcar-detail__eyebrow">PROYECTO / JCAR LABS</p>
-        <h2>${detail.lead}</h2>
+        <h2>${escapeHTML(detail.lead)}</h2>
         <div class="jcar-detail__intro-grid">
-          <p>${detail.description}</p>
-          <ul>${detail.tags.map((tag) => `<li>${tag}</li>`).join("")}</ul>
+          <p>${escapeHTML(detail.description)}</p>
+          <ul>${detail.tags.map((tag) => `<li>${escapeHTML(tag)}</li>`).join("")}</ul>
         </div>
       </section>
       ${editorialSections.map(([label, title, copy], index) => `
@@ -925,15 +925,15 @@
         </section>`).join("")}
       <section class="jcar-detail__final jcar-panel" data-jcar-reveal>
         <p class="jcar-detail__eyebrow">PRODUCTO FINAL</p>
-        <h2>${detail.title}</h2>
-        <p>${detail.lead}</p>
+        <h2>${escapeHTML(detail.title)}</h2>
+        <p>${escapeHTML(detail.lead)}</p>
         <a class="jcar-detail__cta" href="${CONTACT_URL}" target="_blank" rel="noopener noreferrer">Hablemos de tu proyecto →</a>
       </section>
       <section class="jcar-detail__share" data-jcar-reveal>
         <p>MÁS PROYECTOS</p>
       </section>
       <section class="jcar-detail__related" data-jcar-reveal>
-        ${siblingItems.map((item) => `<a href="${item.href}"><span>${item.number}</span><strong>${item.title}</strong><span>↗</span></a>`).join("")}
+        ${siblingItems.map((item) => `<a href="${escapeHTML(item.href)}"><span>${escapeHTML(item.number)}</span><strong>${escapeHTML(item.title)}</strong><span>↗</span></a>`).join("")}
       </section>`
     const footer = document.querySelector("footer")
     if (footer) footer.before(main)
@@ -1013,7 +1013,7 @@
           <a class="jcar-service-card" href="${item.href}" data-jcar-service-card>
             <div class="jcar-service-card__content">
               <p class="jcar-service-card__date">SERVICIO ${item.number} · 2026</p>
-              <h2>${item.title}</h2>
+              <h2>${escapeHTML(item.title)}</h2>
               <span class="jcar-service-card__line" aria-hidden="true"></span>
               <p class="jcar-service-card__description"><span class="sr-only">${escapeHTML(item.description)}</span><span class="jcar-service-card__letters" aria-hidden="true">${animatedLetters(item.description)}</span></p>
               <div class="jcar-service-card__author">
@@ -1022,7 +1022,7 @@
                 <i aria-hidden="true">↗</i>
               </div>
             </div>
-            <div class="jcar-service-card__visual" aria-hidden="true"><img src="${item.image}" alt="" loading="lazy" decoding="async"><span>${item.tags}</span></div>
+            <div class="jcar-service-card__visual" aria-hidden="true"><img src="${item.image}" alt="" loading="lazy" decoding="async"><span>${escapeHTML(item.tags)}</span></div>
           </a>`).join("")}
       </section>` : `
       <section class="jcar-work-list" aria-label="${listing.title}">
@@ -1030,9 +1030,9 @@
           <a class="jcar-work-card" href="${item.href}" data-jcar-reveal>
             <div class="jcar-work-card__content">
               <p class="jcar-work-card__eyebrow">(PROYECTO)</p>
-              <h2>${item.title}</h2>
-              <p class="jcar-work-card__description">${item.description}</p>
-              <div class="jcar-work-card__meta"><strong>${item.client}</strong><span>${item.category}</span><small>${item.date}</small></div>
+              <h2>${escapeHTML(item.title)}</h2>
+              <p class="jcar-work-card__description">${escapeHTML(item.description)}</p>
+              <div class="jcar-work-card__meta"><strong>${escapeHTML(item.client)}</strong><span>${escapeHTML(item.category)}</span><small>${escapeHTML(item.date)}</small></div>
             </div>
             <div class="jcar-work-card__ticks" aria-hidden="true"></div>
             <div class="jcar-work-card__visual" aria-hidden="true" style="--jcar-work-image:url('${item.image}')"><span>JCL / ${item.number}</span></div>

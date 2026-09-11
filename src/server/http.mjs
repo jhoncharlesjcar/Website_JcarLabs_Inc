@@ -2,6 +2,9 @@ import http from 'http';
 import fs from 'fs';
 import path from 'path';
 import zlib from 'zlib';
+import { parseFramerRanges } from '../lib/framer-ranges.mjs';
+import { withUrlShim } from '../lib/url-shim.js';
+import { legacyRedirectTarget } from '../lib/legacy-redirects.mjs';
 
 // [2.2] HSTS solo en producción (bajo HTTPS). Activar con NODE_ENV=production o HTTPS=1.
 const isProduction = process.env.NODE_ENV === 'production' || process.env.HTTPS === '1';
@@ -45,28 +48,11 @@ const SECURITY_HEADERS = {
 const COMPRESSIBLE_EXTENSIONS = new Set(['html', 'css', 'js', 'mjs', 'json', 'svg', 'txt', 'xml']);
 const RANGE_EXTENSIONS = new Set(['mp4', 'webm']);
 
-function parseFramerRanges(value, size) {
-  if (!value) return null;
-  const ranges = value.split(',').map((part) => {
-    const match = /^(\d+)-(\d+)$/.exec(part.trim());
-    if (!match) return null;
-    const start = Number(match[1]);
-    const end = Number(match[2]);
-    if (!Number.isSafeInteger(start) || !Number.isSafeInteger(end) || start < 0 || start > end || end >= size) return null;
-    return { start, end };
-  });
-  return ranges.every(Boolean) ? ranges : null;
-}
-
-const LEGACY_REDIRECTS = new Map([
-  ['/thoughts', '/services'],
-  ['/work/unstable-sequence', '/work/sistema-hotelero'],
-  ['/work/still-pressure', '/work/nezus-bisuteria'],
-  ['/work/surface-tension', '/work/soluciones-empresariales'],
-]);
-
 function cacheControlFor(filePath, ext) {
   const normalized = filePath.replaceAll('\\', '/');
+  if (normalized.endsWith('/brand-content.js') || normalized.endsWith('/accessibility.js')) {
+    return 'no-cache, no-store, must-revalidate';
+  }
   if (normalized.includes('/assets/js/') || normalized.includes('/assets/fonts/')) {
     return 'public, max-age=31536000, immutable';
   }
@@ -125,14 +111,14 @@ return http.createServer(async (req, res) => {
   let pathname;
   try {
     parsedUrl = new URL(req.url, 'http://localhost');
-    pathname = decodeURIComponent(parsedUrl.pathname);
+    pathname = decodeURIComponent(parsedUrl.pathname).replace(/\/$/, '') || '/';
   } catch {
     res.writeHead(400, { ...SECURITY_HEADERS, 'Content-Type': 'text/plain; charset=UTF-8' });
     res.end('400 Bad Request');
     return;
   }
 
-  const legacyTarget = LEGACY_REDIRECTS.get(pathname) || (pathname.startsWith('/thoughts/') ? '/services' : null);
+  const legacyTarget = legacyRedirectTarget(pathname);
   if (legacyTarget) {
     res.writeHead(301, { ...SECURITY_HEADERS, 'Cache-Control': 'public, max-age=86400', Location: legacyTarget });
     res.end();
@@ -208,21 +194,7 @@ return http.createServer(async (req, res) => {
 
     if (ext === 'html') {
       let content = await fs.promises.readFile(filePath, 'utf-8');
-      const patchScript = `<script>
-const OriginalURL = window.URL;
-window.URL = function(url, base) {
-  try { return new OriginalURL(url, base); }
-  catch(e) {
-    if (!base && typeof url === 'string') {
-      try { return new OriginalURL(url, window.location.href); } catch(err) {}
-    }
-    throw e;
-  }
-};
-Object.defineProperty(window.URL, 'createObjectURL', { value: OriginalURL.createObjectURL });
-Object.defineProperty(window.URL, 'revokeObjectURL', { value: OriginalURL.revokeObjectURL });
-</script>`;
-      content = content.replace(/<head>/i, '<head>' + patchScript);
+      content = withUrlShim(content);
       await sendBuffer(req, res, 200, headers, Buffer.from(content), true);
     } else if (COMPRESSIBLE_EXTENSIONS.has(ext)) {
       const content = await fs.promises.readFile(filePath);

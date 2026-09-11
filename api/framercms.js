@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { parseFramerRanges } from '../src/lib/framer-ranges.mjs';
 
 // Vercel includes dist/assets/cms/** at bundle time (see vercel.json → functions.includeFiles).
 // __dirname points to /var/task/api/ in the Vercel Lambda environment.
@@ -11,34 +12,6 @@ const SECURITY_HEADERS = {
   'X-Frame-Options': 'SAMEORIGIN',
   'X-Content-Type-Options': 'nosniff',
 };
-
-/**
- * Validates and parses the Framer-specific multi-range query parameter.
- * Format: "start-end[,start-end,...]" — byte offsets, zero-indexed.
- * Multiple ranges are concatenated in order into a single response body.
- *
- * @param {string} value  The raw ?range= query-string value.
- * @param {number} size   Total byte length of the file.
- * @returns {{ start: number, end: number }[] | null}
- */
-function parseFramerRanges(value, size) {
-  if (!value) return null;
-  const ranges = value.split(',').map((part) => {
-    const match = /^(\d+)-(\d+)$/.exec(part.trim());
-    if (!match) return null;
-    const start = Number(match[1]);
-    const end = Number(match[2]);
-    if (
-      !Number.isSafeInteger(start) ||
-      !Number.isSafeInteger(end) ||
-      start < 0 ||
-      start > end ||
-      end >= size
-    ) return null;
-    return { start, end };
-  });
-  return ranges.every(Boolean) ? ranges : null;
-}
 
 /**
  * Vercel serverless function — Framer CMS binary range protocol handler.

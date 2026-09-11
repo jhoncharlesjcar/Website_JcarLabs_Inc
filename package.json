@@ -13,9 +13,10 @@
     "dev": "astro dev --host 127.0.0.1 --port 4321",
     "check": "astro check",
     "build": "astro check && astro build",
-    "build:vercel": "astro build",
+    "build:vercel": "node scripts/generate-corporate-content.mjs && astro check && astro build",
     "preview": "node scripts/serve.mjs",
-    "start": "node scripts/serve.mjs"
+    "start": "node scripts/serve.mjs",
+    "test": "node scripts/run-tests.mjs"
   },
   "dependencies": {
     "astro": "7.3.2",

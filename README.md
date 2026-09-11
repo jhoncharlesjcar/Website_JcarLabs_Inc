@@ -21,7 +21,7 @@ Plataforma web corporativa oficial de **JCAR Labs Inc.**, concebida, diseñada y
 | **02** | **Integración de IA Transmodal, Agentes & LLMOps** | Python, LangChain, Modelos Multimodales, Supervisión | `/services/inteligencia-artificial` |
 | **03** | **Arquitectura Cloud, APIs & Microservicios** | Node.js, Java, Python, REST/gRPC, Observabilidad | `/services/desarrollo-full-stack` |
 | **04** | **Modernización e Ingeniería de Sistemas Legacy** | Java, PHP, SQL, Migración por Etapas sin Downtime | `/services/software-empresarial` |
-| **05** | **Consultoría de Arquitectura & Auditoría de Código** | Análisis Estático, Seguridad, Rendimiento, Escalabilidad | `/services/integraciones-sunat` |
+| **05** | **Consultoría de Arquitectura & Auditoría de Código** | Análisis Estático, Seguridad, Rendimiento, Escalabilidad | `/services/auditoria-de-codigo` |
 
 ---
 
@@ -30,8 +30,7 @@ Plataforma web corporativa oficial de **JCAR Labs Inc.**, concebida, diseñada y
 La plataforma ha sido construida combinando rendimiento estático extremo con interactividad cinemática avanzada:
 
 * **Core Framework:** [Astro 7](https://astro.build/) con generación estática (SSG) y tipado estricto con [TypeScript](https://www.typescriptlang.org/).
-* **Experiencia Visual & Motion Design:** Motor de interacción fluido con soporte para transiciones cinemáticas, animaciones impulsadas por scroll, efectos parallax, microinteracciones reactivas y reproducción optimizada de video en alta definición.
-* **Ecosistema de Ingeniería:** React para componentes interactivos clave, integración de pipelines de datos y servicios en Node.js, Python, Java y PHP.
+* **Experiencia Visual:** HTML exportado de Framer, con copy corporativo aplicado en build (`corporate-document.mjs`) y en el cliente (`brand-content.js`).
 * **Servidor y Edge Runtime:**
   * Transporte HTTP de producción (`src/server/http.mjs`) con compresión nativa (Gzip/Brotli/Deflate), streaming de rangos HTTP (Byte Ranges para video y CMS binario).
   * Cabeceras de seguridad estrictas (Content-Security-Policy, HSTS, X-Frame-Options, X-Content-Type-Options).
