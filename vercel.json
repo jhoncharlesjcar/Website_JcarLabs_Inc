@@ -67,7 +67,7 @@
 
   "functions": {
     "api/framercms.js": {
-      "includeFiles": "dist/assets/cms/**"
+      "includeFiles": "{dist/assets/cms/**,src/lib/framer-ranges.mjs}"
     }
   }
 }

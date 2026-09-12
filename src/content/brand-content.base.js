@@ -1105,11 +1105,6 @@
         revealObserver.observe(element)
       }
     }
-    setTimeout(() => {
-      for (const element of document.querySelectorAll("[data-jcar-reveal]:not(.is-visible)")) {
-        element.classList.add("is-visible")
-      }
-    }, 1600)
   }
 
   function setupServiceCardAnimations() {
@@ -1169,18 +1164,6 @@
       restoreEditorialEmphasis()
       updateNavigationAndLinks()
       configureContactForm()
-      if (typeof applyCorporateCopy === "function") applyCorporateCopy()
-      renderAboutSection()
-      renderSiteHeader()
-      hideUnconfirmedCards()
-      renderContactPage()
-      renderLegalPage()
-      renderListingPage()
-      renderDetailPage()
-      renderServicesFooter()
-      setupRevealAnimations()
-      setupServiceCardAnimations()
-      setupEditorialMotion()
       return
     }
 
@@ -1214,12 +1197,7 @@
 
   const startBranding = () => {
     setupMetadataGuard()
-    const route = location.pathname.replace(/\/$/, "") || "/"
-    const overlayRoute = route === "/work" || route === "/services" || route === "/contact"
-      || route === "/privacy-policy" || route === "/terms-of-use"
-      || route.startsWith("/work/") || route.startsWith("/services/")
-
-    if (RESTORATION_MODE && !overlayRoute) {
+    if (RESTORATION_MODE) {
       const main = document.querySelector("#main")
       const hydrationExpected = main?.hasAttribute("data-framer-hydrate-v2")
       if (!hydrationExpected) {

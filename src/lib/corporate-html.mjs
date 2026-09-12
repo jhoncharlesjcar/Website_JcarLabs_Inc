@@ -36,27 +36,33 @@ function applyExactDictionary(text, dict) {
   return leading + dict.get(key) + trailing;
 }
 
-function mapOutsideScripts(html, fn) {
-  return html.split(/(<script\b[^>]*>[\s\S]*?<\/script>)/i).map((part) => (
-    /^<script/i.test(part) ? part : fn(part)
-  )).join('');
+function walkJson(value, dict) {
+  if (typeof value === 'string') return applyExactDictionary(applyLeaks(value), dict);
+  if (Array.isArray(value)) return value.map((item) => walkJson(item, dict));
+  if (value && typeof value === 'object') {
+    for (const key of Object.keys(value)) value[key] = walkJson(value[key], dict);
+  }
+  return value;
 }
 
 export function applyCorporateHtml(html) {
-  let result = html.replace(/<html\b([^>]*\blang=")en(")/i, '<html$1es$2');
+  let result = applyLeaks(html);
+  result = result.replace(/<html\b([^>]*\blang=")en(")/i, '<html$1es$2');
   result = result.replace(/<meta\b[^>]*name="generator"[^>]*>/i, '<meta name="generator" content="JCAR Labs Inc.">');
 
   const dict = dictionary();
-  result = mapOutsideScripts(result, (chunk) => {
-    let next = applyLeaks(chunk);
-    next = next.replace(/<(p|h1|h2|h3|h4|h5|h6|span|a|li|button|label|time|cite)(\b[^>]*)>([^<]*)<\/\1>/gi, (match, tag, attrs, text) => {
-      const replaced = applyExactDictionary(text, dict);
-      return replaced === text ? match : `<${tag}${attrs}>${replaced}</${tag}>`;
-    });
-    next = next.replace(/data-framer-hydrate-v2="([^"]*)"/g, (_, encoded) => (
-      `data-framer-hydrate-v2="${applyLeaks(encoded)}"`
-    ));
-    return next;
+  result = result.replace(/<(p|h1|h2|h3|h4|h5|h6|span|a|li|button|label|time|cite)(\b[^>]*)>([^<]*)<\/\1>/gi, (match, tag, attrs, text) => {
+    const next = applyExactDictionary(text, dict);
+    return next === text ? match : `<${tag}${attrs}>${next}</${tag}>`;
+  });
+
+  result = result.replace(/data-framer-hydrate-v2="([^"]*)"/g, (match, encoded) => {
+    try {
+      const json = JSON.parse(encoded.replaceAll('&quot;', '"'));
+      return `data-framer-hydrate-v2="${JSON.stringify(walkJson(json, dict)).replaceAll('"', '&quot;')}"`;
+    } catch {
+      return `data-framer-hydrate-v2="${applyLeaks(encoded)}"`;
+    }
   });
 
   return result;

@@ -42,7 +42,7 @@ test('URL shim is injected once even if corporateDocument runs twice', () => {
   const twice = corporateDocument(once, '/');
   const matches = twice.match(/data-jcar-url-shim/g) || [];
   assert.equal(matches.length, 1);
-  assert.match(twice, /function PatchedURL/);
+  assert.match(twice, /class extends OriginalURL/);
 });
 
 test('404 also receives the URL shim', () => {

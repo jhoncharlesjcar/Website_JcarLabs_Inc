@@ -26,13 +26,10 @@ export function createBrandScript(original, sourceBlocks, runtime) {
   const config = JSON.stringify({ services: services.map(({ article, ...service }) => service), extraCopy, translations });
   const setup = `  const corporate = ${config}\n  for (const service of corporate.services) {\n    const originalTitle = normalized(service.sourceTitle)\n    const previousDescription = replacements.get(normalized(service.sourceDescription))\n    replacements.set(originalTitle, service.label)\n    replacements.set(normalized(service.sourceDescription), service.description.toUpperCase())\n    if (previousDescription) replacements.set(normalized(previousDescription), service.description.toUpperCase())\n    Object.assign(detailPages[service.route], { title: service.title, lead: service.description, description: service.description, tags: service.tags })\n  }\n\n${runtime}\n`;
   result = result.replace('  function replaceCompositeText() {', setup + '\n  function replaceCompositeText() {');
-  if (!result.includes('applyCorporateCopy()')) {
-    result = result.replace('      configureContactForm()\n', '      configureContactForm()\n      applyCorporateCopy()\n');
-  }
-  if (!result.includes('applyCorporateCopy()')) {
-    result = result.replace('      configureContactForm()\r\n', '      configureContactForm()\r\n      applyCorporateCopy()\r\n');
-  }
-  if (!result.includes('applyCorporateCopy()')) throw new Error('Corporate lifecycle hook was not inserted');
+  result = result.replace('      configureContactForm()\n      return', '      configureContactForm()\n      applyCorporateCopy()\n      return');
+  // Export files use CRLF; preserve the original formatting while locating the lifecycle hook.
+  if (!result.includes('      applyCorporateCopy()')) result = result.replace('      configureContactForm()\r\n      return', '      configureContactForm()\r\n      applyCorporateCopy()\r\n      return');
+  if (!result.includes('      applyCorporateCopy()')) throw new Error('Corporate lifecycle hook was not inserted');
   return result;
 }
 
